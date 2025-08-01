@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
   justify-content: flex-start;
 }
@@ -85,20 +85,7 @@ body {
   display: flex;
   justify-content: center;
 }
-
-
-
-
-
-
-
-
-
-
-.register-status-TRUE,
-.register-status-FALSE-1,
-.register-status-FALSE-2,
-.register-status-FALSE-3 {
+.register-status-TRUE,.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3 {
   position: absolute;
   top: 1vh;
   left: 50%;
@@ -124,6 +111,17 @@ body {
     border-color 0.25s,
     background 0.25s;
 }
+
+
+
+
+
+
+
+
+
+
+
 .register-status-TRUE {
   border-color: #43a047;
   box-shadow: 4px 4px 25px 0 rgba(67,160,71,0.2);
