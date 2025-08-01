@@ -4,7 +4,7 @@ body {
 
 .log-in {
   text-align: center;
-  margin: 10vh auto 0 auto;
+  margin: 15vh auto 0 auto;
   max-width: 500px;
   padding: 20px 25px 50px 25px;
   border: 2px solid #4fc3f7;
@@ -49,8 +49,7 @@ body {
     box-shadow 0.2s,
     border-color 0.2s;
 }
-.log-in-form-content input[type="text"]:focus,
-.log-in-form-content input[type="password"]:focus {
+.log-in-form-content input[type="text"]:focus,.log-in-form-content input[type="password"]:focus {
   border-color: #1565c0;
   box-shadow: 4px 4px 15px rgba(33,150,243,0.2);
   transform: scale(1.1, 0.9);
@@ -74,10 +73,56 @@ body {
     border-color 0.2s,
     background 0.2s;
 }
-.log-in-form button[type="submit"]:hover,
-.log-in-form button[type="submit"]:focus {
+.log-in-form button[type="submit"]:hover,.log-in-form button[type="submit"]:focus {
   background: rgba(255,255,255,0.75);
   border-color: #1565c0;
   box-shadow: 5px 5px 25px rgba(33,150,243,0.2);
   transform: scale(1.05, 0.95);
+}
+
+.log-in-status-FALSE,.log-in-status-TRUE {
+  position: absolute;
+  top: 1vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+}
+
+.log-in-status-TRUE,.log-in-status-FALSE {
+  min-width: 250px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 20px;
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  background: rgba(255,255,255,0.5);
+  box-shadow: 4px 4px 25px 0 rgba(0,0,0,0.10);
+  margin: 0;
+  border-width: 5px;
+  border-style: solid;
+  box-sizing: border-box;
+  transition: 
+    transform 0.25s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.25s,
+    border-color 0.25s,
+    background 0.25s;
+}
+
+.log-in-status-TRUE {
+  border-color: #43a047;
+  box-shadow: 4px 4px 25px 0 rgba(67,160,71,0.2);
+  background: rgba(67,160,71,0.10);
+  color: #2e7d32;
+}
+.log-in-status-FALSE {
+  border-color: #e53935;
+  box-shadow: 4px 4px 25px 0 rgba(229,57,53,0.2);
+  background: rgba(229,57,53,0.10);
+  color: #b71c1c;
+}
+
+.log-in-status p {
+  margin: 0;
+  display: block;
 }
