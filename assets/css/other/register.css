@@ -88,6 +88,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .register-status-TRUE,.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3 {
   position: absolute;
   top: 1vh;
@@ -115,30 +116,19 @@ body {
     background 0.25s;
 }
 
-
-
-
-
-
-
-
-
-
-
 .register-status-TRUE {
   border-color: #43a047;
   box-shadow: 4px 4px 25px 0 rgba(67,160,71,0.2);
   background: rgba(67,160,71,0.10);
   color: #2e7d32;
 }
-.register-status-FALSE-1,
-.register-status-FALSE-2,
-.register-status-FALSE-3 {
+.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3 {
   border-color: #e53935;
   box-shadow: 4px 4px 25px 0 rgba(229,57,53,0.2);
   background: rgba(229,57,53,0.10);
   color: #b71c1c;
 }
+
 .register-status p {
   margin: 0;
   display: block;

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // 初始全部隐藏
   const statusTrue = document.querySelector('.register-status-TRUE');
   const statusFalse1 = document.querySelector('.register-status-FALSE-1');
   const statusFalse2 = document.querySelector('.register-status-FALSE-2');
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      // 隐藏所有状态
       [statusTrue, statusFalse1, statusFalse2, statusFalse3].forEach(el => {
         if (el) {
           el.style.display = 'none';
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      // 前端校验两次密码是否一致
       const pwd = document.getElementById('password').value;
       const pwdNext = document.getElementById('password-next').value;
       if (pwd !== pwdNext) {
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // 提交表单
       const formData = new FormData(form);
       const res = await fetch(form.action, {
         method: 'POST',
@@ -40,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const text = await res.text();
 
-      // 根据后端返回结果显示不同提示
       if (text.trim() === 'TRUE' && statusTrue) {
         statusTrue.style.display = 'block';
         void statusTrue.offsetWidth;
