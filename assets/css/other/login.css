@@ -127,10 +127,6 @@ body {
   display: block;
 }
 
-
-
-
-
 .slide-down {
   animation: slideDown 0.5s cubic-bezier(.34,1.56,.64,1);
 }

@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // 初始全部隐藏
   const statusTrue = document.querySelector('.log-in-status-TRUE');
   const statusFalse = document.querySelector('.log-in-status-FALSE');
   if (statusTrue) statusTrue.style.display = 'none';
   if (statusFalse) statusFalse.style.display = 'none';
 
-  // 表单提交事件
   const form = document.querySelector('.log-in-form');
   if (form) {
     form.addEventListener('submit', async function(e) {
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const text = await res.text();
 
-      // 动画前先移除动画类
       if (statusTrue) statusTrue.classList.remove('slide-down');
       if (statusFalse) statusFalse.classList.remove('slide-down');
 
@@ -31,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         statusTrue.classList.add('slide-down');
         setTimeout(() => {
           window.location.href = '../tool.html';
-        }, 2000);
+        }, 1000);
       } else if (text.trim() === 'FALSE' && statusFalse) {
         statusFalse.style.display = 'block';
         void statusFalse.offsetWidth;
