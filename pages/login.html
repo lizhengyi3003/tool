@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="icon" href="/images/feichuan.ico" type="image/x-icon">
+    <link rel="icon" href="/images/feichuan.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/other/login.css">
+    <script src="../assets/js/login.js"></script>
+  </head>
+  <body>
+    <div class="background-video">
+      <video autoplay loop muted>
+        <source src="/videos/shenlilinghua.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="log-in">
+      <h1>登录</h1>
+      <form action="/api/login" method="post" class="log-in-form">
+        <div class="log-in-form-content">
+          <label for="username">用户名:</label>
+          <input type="text" id="username" name="username" required placeholder="请输入手机号或邮箱">
+        </div>
+        <br/>
+        <div class="log-in-form-content">
+          <label for="password">密码:</label>
+          <input type="password" id="password" name="password" required placeholder="请输入密码">
+        </div>
+        <br/>
+        <button type="submit">登录</button>
+      </form>
+      <p>还没有账号？<a href="register.html">注册</a></p>
+    </div>
+    <div class="log-in-status">
+      
+    </div>
+  </body>
+</html>
