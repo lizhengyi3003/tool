@@ -126,3 +126,21 @@ body {
   margin: 0;
   display: block;
 }
+
+
+
+
+
+.slide-down {
+  animation: slideDown 0.5s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
