@@ -80,7 +80,7 @@ body {
   transform: scale(1.05, 0.95);
 }
 
-.log-in-status-FALSE,.log-in-status-TRUE {
+.log-in-status-TRUE,.log-in-status-FALSE {
   position: absolute;
   top: 1vh;
   left: 50%;
