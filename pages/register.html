@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/other/register.css">
     <script src="../assets/js/register.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
   <body>
     <div class="background-video">
@@ -33,7 +34,7 @@
           <input type="password" id="password-next" name="password" required placeholder="请再次输入密码">
         </div>
         <br/>
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABnkZJTigol9Njs-"></div>
         <br/>
         <button type="submit">注册</button>
       </form>

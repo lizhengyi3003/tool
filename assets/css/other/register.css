@@ -79,3 +79,33 @@ body {
   box-shadow: 5px 5px 25px rgba(33,150,243,0.2);
   transform: scale(1.05, 0.95);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cf-turnstile {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
