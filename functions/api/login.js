@@ -13,7 +13,7 @@ export async function onRequest(context) {
   `;
   const user = await context.env.mysql.prepare(sql).bind(username, username, username).first();
 
-  let login_status = 'FAUSE';
+  let login_status = 'FALSE';
   if (user && user.password === password) {
     login_status = 'TRUE';
   }
