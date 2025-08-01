@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="icon" href="/images/feichuan.ico" type="image/x-icon">
+    <link rel="icon" href="/images/feichuan.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/other/register.css">
+    <script src="../assets/js/register.js"></script>
+  </head>
+  <body>
+    <div class="background-video">
+      <video autoplay loop muted>
+        <source src="/videos/shenlilinghua.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="register">
+      <h1>注册</h1>
+      <form action="/api/register" method="post" class="register-form">
+        <div class="register-form-content">
+          <label for="username">用户名:</label>
+          <input type="text" id="username" name="username" required placeholder="请输入手机号">
+        </div>
+        <br/>
+        <div class="register-form-content">
+          <label for="password">密码:</label>
+          <input type="password" id="password" name="password" required placeholder="请输入密码">
+        </div>
+        <br/>
+        <div class="register-form-content">
+          <label for="password">密码:</label>
+          <input type="password" id="password-next" name="password" required placeholder="请再次输入密码">
+        </div>
+        <br/>
+        <div id="turnstile"></div>
+        <br/>
+        <button type="submit">注册</button>
+      </form>
+      <p>已有账号？<a href="login.html">登录</a></p>
+    </div>
+  </body>
+</html>
