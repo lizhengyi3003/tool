@@ -1,5 +1,3 @@
-import mysql from 'mysql2/promise';
-
 export async function onRequest(context) {
   const formData = await context.request.formData();
   const username = formData.get('username'); // 邮箱
@@ -21,23 +19,17 @@ export async function onRequest(context) {
     return new Response('FALSE-3');
   }
 
-  // 2. 连接数据库
-  const connection = await mysql.createConnection({
-    host: '你的数据库地址',
-    user: '你的数据库用户名',
-    password: '你的数据库密码',
-    database: '你的数据库名'
-  });
+  // 2. 连接 D1 数据库（context.env.mysql 为 D1 绑定名）
+  const db = context.env.mysql;
 
   // 3. 检查邮箱是否已存在
-  const [rows] = await connection.execute('SELECT * FROM users WHERE mail = ?', [username]);
-  if (rows.length > 0) {
-    await connection.end();
+  const { results } = await db.prepare('SELECT * FROM users WHERE mail = ?').bind(username).all();
+  if (results.length > 0) {
     return new Response('FALSE-2'); // 邮箱已存在
   }
 
   // 4. 插入新用户
-  await connection.execute('INSERT INTO users (mail, password) VALUES (?, ?)', [username, password]);
-  await connection.end();
+  await db.prepare('INSERT INTO users (mail, password) VALUES (?, ?)').bind(username, password).run();
+
   return new Response('TRUE');
 }
