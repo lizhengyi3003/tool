@@ -22,14 +22,14 @@ export async function onRequest(context) {
   // 2. 连接 D1 数据库（context.env.mysql 为 D1 绑定名）
   const db = context.env.mysql;
 
-  // 3. 检查邮箱是否已存在
-  const { results } = await db.prepare('SELECT * FROM users WHERE mail = ?').bind(username).all();
+  // 3. 检查邮箱是否已存在于 account 表的 mail 列
+  const { results } = await db.prepare('SELECT * FROM account WHERE mail = ?').bind(username).all();
   if (results.length > 0) {
     return new Response('FALSE-2'); // 邮箱已存在
   }
 
-  // 4. 插入新用户
-  await db.prepare('INSERT INTO users (mail, password) VALUES (?, ?)').bind(username, password).run();
+  // 4. 插入新用户到 account 表
+  await db.prepare('INSERT INTO account (mail, password) VALUES (?, ?)').bind(username, password).run();
 
   return new Response('TRUE');
 }
