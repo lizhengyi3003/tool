@@ -1,12 +1,12 @@
 @font-face {
     font-family: '悄悄喜欢你';
-    src: url('https://assets.feichuan.dpdns.org/fonts/%E6%82%84%E6%82%84%E5%96%9C%E6%AC%A2%E4%BD%A0.ttf') format('truetype');
+    src: url('/fonts/悄悄喜欢你.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: '小可奶酪体';
-    src: url('https://assets.feichuan.dpdns.org/fonts/%E5%B0%8F%E5%8F%AF%E5%A5%B6%E9%85%AA%E4%BD%93.ttf') format('truetype');
+    src: url('/fonts/小可奶酪体.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
