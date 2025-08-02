@@ -5,7 +5,10 @@ export async function onRequest(context) {
   const token = formData.get('cf-turnstile-response');
   const SECRET_KEY = '0x4AAAAAABnkZPrAemeKew_EP1Iu7fMmLXk';
 
-  // 1. 校验 Turnstile
+  // 校验 Turnstile，未通过或未完成都返回 FALSE-3
+  if (!token) {
+    return new Response('FALSE-3');
+  }
   const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     body: new URLSearchParams({
@@ -19,17 +22,20 @@ export async function onRequest(context) {
     return new Response('FALSE-3');
   }
 
-  // 2. 连接 D1 数据库（context.env.mysql 为 D1 绑定名）
   const db = context.env.mysql;
 
-  // 3. 检查邮箱是否已存在于 account 表的 mail 列
+  // 检查邮箱是否已存在
   const { results } = await db.prepare('SELECT * FROM account WHERE mail = ?').bind(username).all();
   if (results.length > 0) {
-    return new Response('FALSE-2'); // 邮箱已存在
+    return new Response('FALSE-2');
   }
 
-  // 4. 插入新用户到 account 表
-  await db.prepare('INSERT INTO account (mail, password) VALUES (?, ?)').bind(username, password).run();
+  // 获取当前最大id
+  const { results: idResults } = await db.prepare('SELECT MAX(id) as maxId FROM account').all();
+  const nextId = (idResults[0]?.maxId || 0) + 1;
+
+  // 插入新用户，phone_number和name填空
+  await db.prepare('INSERT INTO account (id, mail, password, phone_number, name) VALUES (?, ?, ?, ?, ?)')
+    .bind(nextId, username, password, '', '').run();
 
   return new Response('TRUE');
-}
