@@ -39,3 +39,4 @@ export async function onRequest(context) {
     .bind(nextId, username, password, '', '').run();
 
   return new Response('TRUE');
+}
