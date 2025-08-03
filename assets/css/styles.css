@@ -12,6 +12,10 @@
 }
 body {
     font-family: '悄悄喜欢你', '小可奶酪体','Noto Sans SC', '思源黑体', 'Microsoft YaHei', Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-user-select: auto;
+    user-select: auto;
 }
 
 .background-video {

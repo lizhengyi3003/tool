@@ -1,5 +1,9 @@
 body {
   overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-user-select: auto;
+  user-select: auto;
 }
 
 .log-in {
