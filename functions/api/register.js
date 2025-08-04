@@ -1,9 +1,14 @@
 export async function onRequest(context) {
   const formData = await context.request.formData();
-  const username = formData.get('username'); // 邮箱
+  const username = formData.get('username'); 
   const password = formData.get('password');
   const token = formData.get('cf-turnstile-response');
   const SECRET_KEY = '0x4AAAAAABnkZPrAemeKew_EP1Iu7fMmLXk';
+
+  const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailReg.test(username)) {
+    return new Response('FALSE-5');
+  }
 
   if (!token) {
     return new Response('FALSE-3');

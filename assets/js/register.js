@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const statusFalse1 = document.querySelector('.register-status-FALSE-1');
   const statusFalse2 = document.querySelector('.register-status-FALSE-2');
   const statusFalse3 = document.querySelector('.register-status-FALSE-3');
-  [statusTrue, statusFalse1, statusFalse2, statusFalse3].forEach(el => {
+  const statusFalse5 = document.querySelector('.register-status-FALSE-5');
+  [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse5].forEach(el => {
     if (el) el.style.display = 'none';
   });
 
@@ -11,15 +12,25 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      [statusTrue, statusFalse1, statusFalse2, statusFalse3].forEach(el => {
+      [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse5].forEach(el => {
         if (el) {
           el.style.display = 'none';
           el.classList.remove('slide-down');
         }
       });
 
+      const email = document.getElementById('username').value;
       const pwd = document.getElementById('password').value;
       const pwdNext = document.getElementById('password-next').value;
+      const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailReg.test(email)) {
+        if (statusFalse5) {
+          statusFalse5.style.display = 'block';
+          void statusFalse5.offsetWidth;
+          statusFalse5.classList.add('slide-down');
+        }
+        return;
+      }
       if (pwd !== pwdNext) {
         if (statusFalse1) {
           statusFalse1.style.display = 'block';
@@ -54,6 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
         statusFalse3.style.display = 'block';
         void statusFalse3.offsetWidth;
         statusFalse3.classList.add('slide-down');
+      } else if (text.trim() === 'FALSE-5' && statusFalse5) {
+        statusFalse5.style.display = 'block';
+        void statusFalse5.offsetWidth;
+        statusFalse5.classList.add('slide-down');
       }
     });
   }

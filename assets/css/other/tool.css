@@ -69,11 +69,12 @@
 }
 .tool-card {
     background: rgba(255,255,255,0.5);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    /* Firefox 53+ 支持 mask 属性 */
+    backdrop-filter: blur(10px);
     mask: none;
     -webkit-mask: none;
+    -webkit-appearance: none;
+    appearance: none;
     border-radius: 20px;
     box-shadow: 5px 5px 25px rgba(33,150,243,0.10);
     border: 2px solid #4fc3f7;
