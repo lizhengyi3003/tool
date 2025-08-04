@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const statusFalse1 = document.querySelector('.register-status-FALSE-1');
   const statusFalse2 = document.querySelector('.register-status-FALSE-2');
   const statusFalse3 = document.querySelector('.register-status-FALSE-3');
+  const statusFalse4 = document.querySelector('.register-status-FALSE-4');
   const statusFalse5 = document.querySelector('.register-status-FALSE-5');
-  [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse5].forEach(el => {
+  [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5].forEach(el => {
     if (el) el.style.display = 'none';
   });
 
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse5].forEach(el => {
+      [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5].forEach(el => {
         if (el) {
           el.style.display = 'none';
           el.classList.remove('slide-down');
@@ -65,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
         statusFalse3.style.display = 'block';
         void statusFalse3.offsetWidth;
         statusFalse3.classList.add('slide-down');
+      } else if (text.trim() === 'FALSE-4' && statusFalse4) {
+        statusFalse4.style.display = 'block';
+        void statusFalse4.offsetWidth;
+        statusFalse4.classList.add('slide-down');
       } else if (text.trim() === 'FALSE-5' && statusFalse5) {
         statusFalse5.style.display = 'block';
         void statusFalse5.offsetWidth;
