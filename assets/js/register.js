@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         statusFalse3.style.display = 'block';
         void statusFalse3.offsetWidth;
         statusFalse3.classList.add('slide-down');
-      } else if (text.trim() === 'FALSE-4' && statusFalse4) {
+      } else if (text.trim() === 'FALSE-4' && statusFalse4) { 
         statusFalse4.style.display = 'block';
         void statusFalse4.offsetWidth;
         statusFalse4.classList.add('slide-down');

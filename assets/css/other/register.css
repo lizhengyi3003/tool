@@ -55,6 +55,49 @@ body {
     box-shadow 0.2s,
     border-color 0.2s;
 }
+.register-form-content input[type="text"]#verify-code {
+  min-width: 0;
+  font-size: 1.2em;
+  padding: 10px 15px;
+  text-align: left;
+  border: 2px solid #4fc3f7;
+  border-radius: 15px;
+  outline: none;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 2px 2px 10px rgba(33,150,243,0.1);
+  margin-right: 20px;
+  transition: 
+    transform 0.2s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.register-form-content input[type="text"]#verify-code:focus {
+  border-color: #1565c0;
+  box-shadow: 4px 4px 15px rgba(33,150,243,0.2);
+  transform: scale(1.1, 0.9);
+}
+.register-form-content #send-code-btn {
+  padding: 10px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #1565c0;
+  background: rgba(255,255,255,0.5);
+  border: 2px solid #4fc3f7;
+  border-radius: 15px;
+  margin-left: 0;
+  cursor: pointer;
+  transition:
+    transform 0.2s cubic-bezier(.34,1.56,.64,1),
+    box-shadow 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+.register-form-content #send-code-btn:hover, .register-form-content #send-code-btn:focus {
+  background: rgba(255,255,255,0.75);
+  border-color: #1565c0;
+  box-shadow: 2px 2px 12px rgba(33,150,243,0.15);
+  transform: scale(1.05, 0.95);
+}
 .register-form-content input[type="text"]:focus,.register-form-content input[type="password"]:focus {
   border-color: #1565c0;
   box-shadow: 4px 4px 15px rgba(33,150,243,0.2);

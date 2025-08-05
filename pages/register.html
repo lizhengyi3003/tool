@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>注册</title>
     <link rel="icon" href="/images/feichuan.ico" type="image/x-icon">
-    <link rel="icon" href="/images/feichuan.png" type="image/png">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/other/register.css">
     <script src="../assets/js/register.js"></script>
@@ -20,18 +19,21 @@
       <h1>注册</h1>
       <form action="/api/register" method="post" class="register-form">
         <div class="register-form-content">
-          <label for="username">用户名:</label>
+          <label for="username">邮箱:</label>
           <input type="text" id="username" name="username" required placeholder="请输入邮箱">
         </div>
-        <br/>
         <div class="register-form-content">
           <label for="password">密码:</label>
           <input type="password" id="password" name="password" required placeholder="请输入密码">
         </div>
-        <br/>
         <div class="register-form-content">
-          <label for="password">密码:</label>
-          <input type="password" id="password-next" name="password" required placeholder="请再次输入密码">
+          <label for="password-next">密码:</label>
+          <input type="password" id="password-next" name="password_confirm" required placeholder="请再次输入密码">
+        </div>
+        <div class="register-form-content">
+          <label for="verify-code">验证码:</label>
+          <input type="text" id="verify-code" name="verify_code" required placeholder="请输入验证码">
+          <button type="button" id="send-code-btn">获取验证码</button>
         </div>
         <div class="cf-turnstile" data-sitekey="0x4AAAAAABnkZJTigol9Njs-"></div>
         <button type="submit">注册</button>
@@ -48,13 +50,13 @@
       <div class="register-status-FALSE-2">
         <p>注册失败，该用户已存在，正在为你跳转到登录界面...</p>
       </div>
-      <div class="register-status-FALSE-3">
+      <div class="register-status-FALSE-3" style="display:none;">
         <P>注册失败，请等待人机验证成功后再点击注册</P>
       </div>
-      <div class="register-status-FALSE-4">
+      <div class="register-status-FALSE-4" style="display:none;">
         <p>注册失败，你被判定为机器人，请刷新界面重新验证</p>
       </div>
-      <div class="register-status-FALSE-5">
+      <div class="register-status-FALSE-5" style="display:none;">
         <p>注册失败，您的邮箱格式不正确，请重新输入</p>
       </div>
     </div>

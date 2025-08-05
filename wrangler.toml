@@ -10,3 +10,7 @@ database_id = "21fa5102-b272-4b08-a473-ee32db03ddb6"
 [[r2_buckets]]
 binding = "content"      
 bucket_name = "tool"    
+
+[[kv_namespaces]]
+binding = "tool-kv"
+id = "e2c1a123456b4cde9f1234567890abcd"
