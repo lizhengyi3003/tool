@@ -13,4 +13,4 @@ bucket_name = "tool"
 
 [[kv_namespaces]]
 binding = "tool-kv"
-id = "e2c1a123456b4cde9f1234567890abcd"
+id = "d8fe1e1b7c1c4e8ab56f21d8039b2722"
