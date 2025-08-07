@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('请输入邮箱');
         return;
       }
-      const res = await fetch('/api/send-code', {
+    const res = await fetch('/api/sendcode', {
         method: 'POST',
         body: JSON.stringify({ email }),
         headers: { 'Content-Type': 'application/json' }
@@ -78,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       const formData = new FormData(form);
+      const verifyCodeInput = document.getElementById('verify-code');
+      if (verifyCodeInput) {
+        formData.set('verifyCode', verifyCodeInput.value);
+      }
       const res = await fetch(form.action, {
         method: 'POST',
         body: formData
