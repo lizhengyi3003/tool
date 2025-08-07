@@ -1,19 +1,52 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const statusTrue = document.querySelector('.register-status-TRUE');
+  const statusTrue1 = document.querySelector('.register-status-TRUE-1');
   const statusFalse1 = document.querySelector('.register-status-FALSE-1');
   const statusFalse2 = document.querySelector('.register-status-FALSE-2');
   const statusFalse3 = document.querySelector('.register-status-FALSE-3');
   const statusFalse4 = document.querySelector('.register-status-FALSE-4');
   const statusFalse5 = document.querySelector('.register-status-FALSE-5');
-  [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5].forEach(el => {
-    if (el) el.style.display = 'none';
-  });
+
+const statusTrue2 = document.querySelector('.register-status-TRUE-2');
+const statusFalse6 = document.querySelector('.register-status-FALSE-6');
+[statusTrue1, statusTrue2, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5, statusFalse6].forEach(el => {
+  if (el) el.style.display = 'none';
+});
+
+const sendCodeBtn = document.getElementById('send-code-btn');
+if (sendCodeBtn) {
+  sendCodeBtn.onclick = async function() {
+    const email = document.getElementById('username').value;
+    if (!email) {
+      alert('请输入邮箱');
+      return;
+    }
+    const res = await fetch('/api/send-code', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const text = await res.text();
+    if (text.includes('验证码已发送')) {
+      if (statusTrue2) {
+        statusTrue2.style.display = 'block';
+        void statusTrue2.offsetWidth;
+        statusTrue2.classList.add('slide-down');
+      }
+    } else {
+      if (statusFalse6) {
+        statusFalse6.style.display = 'block';
+        void statusFalse6.offsetWidth;
+        statusFalse6.classList.add('slide-down');
+      }
+    }
+  };
+}
 
   const form = document.querySelector('.register-form');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      [statusTrue, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5].forEach(el => {
+      [statusTrue1, statusFalse1, statusFalse2, statusFalse3, statusFalse4, statusFalse5].forEach(el => {
         if (el) {
           el.style.display = 'none';
           el.classList.remove('slide-down');
@@ -48,10 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const text = await res.text();
 
-      if (text.trim() === 'TRUE' && statusTrue) {
-        statusTrue.style.display = 'block';
-        void statusTrue.offsetWidth;
-        statusTrue.classList.add('slide-down');
+      if (text.trim() === 'TRUE' && statusTrue1) {
+        statusTrue1.style.display = 'block';
+        void statusTrue1.offsetWidth;
+        statusTrue1.classList.add('slide-down');
         setTimeout(() => {
           window.location.href = 'login.html';
         }, 2000);
