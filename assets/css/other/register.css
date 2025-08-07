@@ -18,10 +18,10 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 4px 4px 25px rgba(33,150,243,0.10);
-  max-height: 85vh;
+  max-height: 90vh;
 }
 .register h1 {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .register-form-content {
   display: flex;
