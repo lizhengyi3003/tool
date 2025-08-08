@@ -8,23 +8,24 @@ export async function onRequestPost({ request, env }) {
   if (!email) return new Response('邮箱不能为空', { status: 400 });
 
   const code = Math.random().toString().slice(2, 8);
-  await env.REGISTER_KV.put(`verify:${email}`, code, { expirationTtl: 300 });
+  await env['tool-kv'].put(`verify:${email}`, code, { expirationTtl: 300 });
 
   // 渲染邮件内容
   const html = renderMailTemplate(code);
   const subject = '您的注册验证码';
 
-  // 用 SendGrid API 发送邮件（推荐，支持 fetch，免费额度多）
-  const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
+  // 用 Resend API 发送邮件（推荐，支持 fetch，免费额度高）
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      personalizations: [{ to: [{ email }], subject }],
-      from: { email: '你的发件邮箱' },
-      content: [{ type: 'text/html', value: html }]
+      from: 'feichuan613@foxmail.com', // 需在 Resend 控台验证
+      to: [email],
+      subject,
+      html
     })
   });
   if (!res.ok) return new Response('邮件发送失败', { status: 500 });
