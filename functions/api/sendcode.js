@@ -22,7 +22,7 @@ export async function onRequestPost({ request, env }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'feichuan613@foxmail.com', // 需在 Resend 控台验证
+      from: 'feichuan613@foxmail.com', 
       to: [email],
       subject,
       html
