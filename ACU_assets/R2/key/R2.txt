@@ -1,6 +1,0 @@
-R2
-tool
-令牌值:HS-nnyCRN3YCrPKvrkbp37h4fu7FblwArktDGcSa
-访问密钥 ID:832b67f32b7915e813c07555c84141d5
-机密访问密钥:bfc8c7b281dead8b010b2f0678057e5d419c9ebd8b2e9d67fd750b6fa4bb5964
-为 S3 客户端使用管辖权地特定的终结点:https://d08d42f9b1e53cc1648cdc9c1eab5a0e.r2.cloudflarestorage.com

@@ -1,12 +1,12 @@
 @font-face {
     font-family: '悄悄喜欢你';
-    src: url('/fonts/悄悄喜欢你.ttf') format('truetype');
+    src: url('/ACU_fonts/悄悄喜欢你.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: '小可奶酪体';
-    src: url('/fonts/小可奶酪体.ttf') format('truetype');
+    src: url('/ACU_fonts/小可奶酪体.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
