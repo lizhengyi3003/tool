@@ -136,7 +136,7 @@ body {
   justify-content: center;
 }
 
-.register-status-TRUE,.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3,.register-status-FALSE-4,.register-status-FALSE-5 {
+.register-status-TRUE-1,.register-status-TRUE-2,.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3,.register-status-FALSE-4,.register-status-FALSE-5,.register-status-FALSE-6 {
   position: absolute;
   top: 1vh;
   left: 50%;
@@ -163,13 +163,13 @@ body {
     background 0.25s;
 }
 
-.register-status-TRUE {
+.register-status-TRUE-1,.register-status-TRUE-2 {
   border-color: #43a047;
   box-shadow: 4px 4px 25px 0 rgba(67,160,71,0.2);
   background: rgba(67,160,71,0.10);
   color: #2e7d32;
 }
-.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3,.register-status-FALSE-4,.register-status-FALSE-5 {
+.register-status-FALSE-1,.register-status-FALSE-2,.register-status-FALSE-3,.register-status-FALSE-4,.register-status-FALSE-5,.register-status-FALSE-6 {
   border-color: #e53935;
   box-shadow: 4px 4px 25px 0 rgba(229,57,53,0.2);
   background: rgba(229,57,53,0.10);

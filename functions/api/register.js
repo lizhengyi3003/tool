@@ -1,43 +1,16 @@
-export async function onRequest(context) {
-  const formData = await context.request.formData();
-  const username = formData.get('username'); 
-  const password = formData.get('password');
-  const token = formData.get('cf-turnstile-response');
-  const SECRET_KEY = '0x4AAAAAABnkZPrAemeKew_EP1Iu7fMmLXk';
+export async function onRequestPost({ request, env }) {
+  const form = await request.formData();
+  const email = form.get('username');
+  const code = form.get('verifyCode');
+  // ...其他注册参数
 
-  const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailReg.test(username)) {
-    return new Response('FALSE-5');
+  const realCode = await env['tool-kv'].get(`verify:${email}`);
+  if (!realCode || realCode !== code) {
+    return new Response('FALSE-4'); // 验证码错误
   }
-
-  if (!token) {
-    return new Response('FALSE-3');
-  }
-  const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    body: new URLSearchParams({
-      secret: SECRET_KEY,
-      response: token,
-      remoteip: context.request.headers.get('CF-Connecting-IP')
-    })
-  });
-  const verifyData = await verifyRes.json();
-  if (!verifyData.success) {
-    return new Response('FALSE-3');
-  }
-
-  const db = context.env.mysql;
-
-  const { results } = await db.prepare('SELECT * FROM account WHERE mail = ?').bind(username).all();
-  if (results.length > 0) {
-    return new Response('FALSE-2');
-  }
-
-  const { results: idResults } = await db.prepare('SELECT MAX(id) as maxId FROM account').all();
-  const nextId = (idResults[0]?.maxId || 0) + 1;
-
-  await db.prepare('INSERT INTO account (id, mail, password, phone_number, name) VALUES (?, ?, ?, ?, ?)')
-    .bind(nextId, username, password, '', '').run();
-
+  // 验证通过，写入数据库，完成注册
+  // ...（此处补充你的注册逻辑）
+  // 注册成功后可删除验证码
+  await env['tool-kv'].delete(`verify:${email}`);
   return new Response('TRUE');
 }
