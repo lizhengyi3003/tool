@@ -1,0 +1,16 @@
+name = "tool"
+compatibility_date = "2025-07-31"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "mysql"
+database_name = "tools"
+database_id = "21fa5102-b272-4b08-a473-ee32db03ddb6"
+
+[[r2_buckets]]
+binding = "content"      
+bucket_name = "tool"    
+
+[[kv_namespaces]]
+binding = "tool-kv"
+id = "d8fe1e1b7c1c4e8ab56f21d8039b2722"
